@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+# runExample("01_hello")
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
