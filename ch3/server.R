@@ -6,6 +6,7 @@ server <- function(input, output) {
   
   # As a reactive function here
   selectedImage <- reactive({
+    if(input$select != 0)
     paste0("img/img", input$select ,".jpg") #reactive value
   })
   
