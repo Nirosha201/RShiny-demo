@@ -8,6 +8,4 @@ library(readr)
 library(dplyr)
 library(gapminder)
 
-setwd("/cloud/project/ch4")
-# data("mtcars")
-# rds_data <- readRDS("data/gapminder_R.RDS")
+# setwd("/cloud/project/ch4")

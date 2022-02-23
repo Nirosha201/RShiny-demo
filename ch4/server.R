@@ -1,19 +1,6 @@
-# library(DT)
-# library(readr)
-# library(dplyr)
-# library(gapminder)
-
 server <- function(input, output) {
-    # setwd("/cloud/project/challenge")
-    
-    fname <- reactive({
-      paste("file name = ", input$file1$datapath)
-    })
-    
-    output$filename <- renderText({
-      fname ()
-    })
-    
+
+    # create a dropdown list - country
     countries <- eventReactive(input$cont, {
       x <-subset(gapminder, continent == input$cont)
       x$country <- factor(x$country)
@@ -26,7 +13,7 @@ server <- function(input, output) {
       selectInput("country", "Country", choices = countries ())
     })
     
-    # Set up your reactives to modify your data from reactive inputs here
+    # prepare output table
     data <- reactive({
       inFile <- input$file1
       if (is.null(inFile)){
@@ -42,7 +29,6 @@ server <- function(input, output) {
     })
 
     output$table_challenge <- DT::renderDataTable({
-        # print(data ())
         datatable(data (), # replace mtcars with your data
                   options = list(scrollX = TRUE)
         )
