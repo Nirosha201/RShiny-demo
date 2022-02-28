@@ -3,6 +3,7 @@ library(shiny)
 library(leaflet)
 library(RColorBrewer)
 library(spData)
+library(spDataLarge)
 library(sf)
 library(dplyr)
 
@@ -53,8 +54,8 @@ shinyServer(function(input, output) {
   
   output$map <- renderLeaflet({
     leaflet() %>% addTiles() %>%
-      addProviderTiles(providers$CartoDB.PositronNoLabels) #%>%
-      # fitBounds(~min(long), ~min(lat), ~max(long), ~max(lat)) # how to fit bounds?
+      addProviderTiles(providers$CartoDB.PositronNoLabels) %>%
+      setView(-10.0382679, 42.3489054, zoom = 2.3)
   })
   
   observe({
