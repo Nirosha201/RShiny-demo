@@ -2,7 +2,6 @@
 library(shiny)
 library(leaflet)
 
-
 shinyUI(
   
   bootstrapPage(
@@ -13,8 +12,9 @@ shinyUI(
                   wellPanel(
                     h4("Challenge"),
                     selectInput('cont', tags$i("Continent"), choices = append("All", unique(world$continent)), multiple = FALSE, width = "200px"),
-                    radioButtons('type', tags$i("Filter by"), choiceNames = list("GDP per capita", "Life expectancy", "Population"), choiceValues = list("gdp", "life", "population")))
-                    
+                    radioButtons('type', tags$i("Filter by"), choiceNames = list("GDP per capita", "Life expectancy", "Population"), choiceValues = list("gdp", "life", "population")),
+                    checkboxInput("leg", "Show legend", value = TRUE)
+                    )
                   )
     )
   )
